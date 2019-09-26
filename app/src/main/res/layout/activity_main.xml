@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_marginTop="0dp"
+        android:id="@+id/rec_scrollView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_green_light"
+                android:gravity="right|center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/rec_delete"
+                    android:layout_width="38dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="삭제"/>
+
+                <TextView
+                    android:id="@+id/rec_insert"
+                    android:layout_width="55dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="공개하기"
+                    />
+
+                <TextView
+                    android:id="@+id/rec_save"
+                    android:onClick="saveClicked"
+                    android:layout_width="39dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginRight="4dp"
+                    android:gravity="center"
+                    android:text="저장"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@android:color/darker_gray">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center|left"
+                    android:textStyle="bold"
+                    android:text="레시피 제목"
+                    />
+
+            </LinearLayout>
+
+
+
+
+            <EditText
+                android:id="@+id/rec_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="예) 김치찌개 끓이기"
+                android:background="@null"/>
+
+            <ImageView
+                android:id="@+id/rec_ImageView"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:srcCompat="@drawable/pic_none4" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@android:color/darker_gray">
+
+                <TextView
+                    android:id="@+id/textView22"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:text="요리소개"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center|left"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/rec_subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="@string/cok_hint" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@android:color/darker_gray">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:text="카테고리"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center|left"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/cat1"
+                    android:layout_width="180dp"
+                    android:layout_height="40dp" />
+
+                <Spinner
+                    android:id="@+id/cat2"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                >
+                <Spinner
+                    android:id="@+id/cat3"
+                    android:layout_width="180dp"
+                    android:layout_height="40dp" />
+
+                <Spinner
+                    android:id="@+id/cat4"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"        >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@android:color/darker_gray">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:text="요리정보"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center|left"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="180dp"
+                        android:layout_height="30dp"
+                        android:text="@string/portion"/>
+
+                    <TextView
+                        android:id="@+id/cok_portion_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="@string/choice" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="180dp"
+                        android:layout_height="30dp"
+                        android:text="시간"/>
+
+                    <TextView
+                        android:id="@+id/cok_time_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="@string/choice" />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="180dp"
+                        android:layout_height="30dp"
+                        android:text="@string/degree"/>
+
+                    <TextView
+                        android:id="@+id/cok_degree_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="@string/choice" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@android:color/darker_gray">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:text="재료"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center|left"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/stuffrecycle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </androidx.recyclerview.widget.RecyclerView>
+                <Button
+                    android:id="@+id/stuffAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="재료 추가"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@android:color/darker_gray">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:text="양념"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center|left"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/spicrecycle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    </androidx.recyclerview.widget.RecyclerView>
+                    <Button
+                        android:id="@+id/spicAdd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="양념 추가"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@android:color/darker_gray">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:text="요리순서"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center|left"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/procrecycle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </androidx.recyclerview.widget.RecyclerView>
+                <Button
+                    android:id="@+id/procAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="요리순서 추가"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@android:color/darker_gray">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:text="완성사진"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center|left"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/pic_none3"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/pic_none3"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/pic_none3"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/pic_none3"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@android:color/darker_gray">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:text="요리팁"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center|left"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/cok_tip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:hint="예) 고기요리에는 소금보다 설탕을 먼저 넣어야 단맛이 겉돌지 않고 육즙이 부드러와요."
+                android:background="@null"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@android:color/darker_gray">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:text="태그"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center|left"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="주재료, 목적, 효능, 대상 등을 쉼표(,)를 사용하여 태그로 남겨주세요.\n예) 돼지고기,다이어트,비만,칼슘,감기예방,이유식,초간단"/>
+
+                <EditText
+                    android:id="@+id/cok_tag"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:hint="예) 돼지고기,다이어트,비만,칼슘,감기예방,이유식,초간단" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

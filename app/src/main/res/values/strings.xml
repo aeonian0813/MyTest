@@ -1,0 +1,77 @@
+<resources>
+    <string name="app_name">MyTest</string>
+
+    <string name="cok_hint">이 레시피의 탄생배경을 적어주세요.\n예) 심심해서 김치찌개를 끓여봤어용 ㅎ.\n사실 조상부터 내려온 비법을 공개하는거랍니다.\n팔로우 많이 눌러주세요옹 ㅎㅎ.</string>
+    <string name="choice">선택</string>
+    <string name="degree">난이도</string>
+    <string name="portion">인원</string>
+    <string name="time">시간</string>
+    <string-array name="cat1">
+        <item>종류별</item>
+        <item>반찬</item>
+        <item>국류</item>
+        <item>디저트</item>
+        <item>면</item>
+        <item>양념/소스</item>
+        <item>밥/죽/떡</item>
+        <item>샐러드</item>
+        <item>빵</item>
+        <item>기타</item>
+    </string-array>
+
+    <string-array name="cat2">
+        <item>상황별</item>
+        <item>초스피드</item>
+        <item>일상</item>
+        <item>손님접대</item>
+        <item>술안주</item>
+        <item>간식</item>
+    </string-array>
+
+    <string-array name="cat3">
+        <item>재료별</item>
+        <item>육류</item>
+        <item>해산물</item>
+        <item>가공식품</item>
+    </string-array>
+
+    <string-array name="cat4">
+        <item>제철요리</item>
+        <item>봄</item>
+        <item>여름</item>
+        <item>가을</item>
+        <item>겨울</item>
+        <item>기타</item>
+    </string-array>
+
+    <string-array name="cok_portion">
+        <item>1인분</item>
+        <item>2인분</item>
+        <item>3인분</item>
+        <item>4인분</item>
+        <item>5인분</item>
+        <item>6인분이상</item>
+    </string-array>
+
+    <string-array name="cok_time">
+        <item>5분이내</item>
+        <item>10분이내</item>
+        <item>15분이내</item>
+        <item>20분이내</item>
+        <item>30분이내</item>
+        <item>60분이내</item>
+        <item>90분이내</item>
+        <item>120분이내</item>
+        <item>120분이상</item>
+    </string-array>
+    
+    <string-array name="cok_degree">
+        <item>아무나</item>
+        <item>초급</item>
+        <item>중급</item>
+        <item>고급</item>
+        <item>신의 경지</item>
+    </string-array>
+    
+    
+</resources>
