@@ -311,7 +311,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 finish();
             }
         });
-
+        int i = 0 ;
         TextView rec_insert = findViewById(R.id.rec_insert);
         rec_insert.setOnClickListener(new View.OnClickListener() {
             @Override
