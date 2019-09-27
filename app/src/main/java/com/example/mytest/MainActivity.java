@@ -5,13 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -27,30 +21,19 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mytest.Adapter.MyRecyclerviewAdapter;
 import com.example.mytest.Adapter.ProcedureAdapter;
 import com.example.mytest.Adapter.StuffAdapter;
-import com.example.mytest.Common.CommonMethod;
 import com.example.mytest.DTO.Procedure;
-import com.example.mytest.DTO.RecipeDTO;
 import com.example.mytest.DTO.Stuff;
 import com.example.mytest.RTask.ListInsert;
-import com.example.mytest.RTask.ListUpdate;
+import com.winfo.photoselector.PhotoSelector;
 
-import java.io.File;
-import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
-import static com.example.mytest.Common.CommonMethod.ipConfig;
-import static com.example.mytest.Common.CommonMethod.isNetworkConnected;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -63,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     String cat2_c ="";
     String cat3_c="";
     String cat4_c="";
+
 
 
     EditText etTitle, etSubTitle;
@@ -78,8 +62,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
     //camera
-
-    private final int REQ_CODE_GALLERY = 100;
+    private static final int SINGLE_CODE = 1;//单选
+    private static final int LIMIT_CODE = 2;//多选限制数量
+    private static final int CROP_CODE = 3;//剪切裁剪
+    private static final int UN_LIMITT_CODE = 4;//多选不限制数量
 
 
 
@@ -94,15 +80,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
 
-
+        //대표이미지
         rec_ImageView = findViewById(R.id.rec_ImageView);
         rec_ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Intent.ACTION_GET_CONTENT);
-                i.setType("image/*");
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivityForResult(i, REQ_CODE_GALLERY);
+                PhotoSelector.builder()
+                        .setSingle(true)
+                        .start(MainActivity.this, SINGLE_CODE);
 
 
             }
@@ -311,7 +296,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 finish();
             }
         });
-        int i = 0 ;
         TextView rec_insert = findViewById(R.id.rec_insert);
         rec_insert.setOnClickListener(new View.OnClickListener() {
             @Override

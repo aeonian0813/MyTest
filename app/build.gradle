@@ -44,6 +44,7 @@ dependencies {
 
 
     /* 사진 관련된 버전 가져오기 */
+    implementation 'com.winfo.photoselector:PhotoSelector:1.2.1'
 
 
 
